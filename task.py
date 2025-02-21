@@ -5,7 +5,7 @@ task4 = pd.read_csv("/Users/sandyyin/Desktop/ML2024/introml_2024_task4_train.csv
 X = task4.drop(columns=["class"])
 Y = task4["class"]
 
-"""# 前處理"""
+""" 前處理 """
 
 # 將未知數轉換為nan，轉換資料型態、切分XY
 import numpy as np
@@ -42,7 +42,7 @@ val_X = pd.concat([val_X.drop(obj_col, axis = 1), val_obj], axis = 1)
 train_X = train_X.astype(float)
 val_X = val_X.astype(float)
 
-"""# 機器學習"""
+""" 機器學習 """
 # 使用GridSearchCV 抓取特定參數中的最佳參數組合 
 from xgboost import XGBClassifier
 from sklearn.model_selection import GridSearchCV
@@ -84,7 +84,7 @@ model.fit(train_X, train_Y, eval_set = [(val_X, val_Y)], verbose = False)
 Y_p = model.predict(val_X)
 print(f"Accuracy: {accuracy_score(Y_p, val_Y)}") # 0.790625
 
-"""# 前處理測試資料、模型預測"""
+""" 前處理測試資料、模型預測 """
 test = pd.read_csv("/Users/sandyyin/Desktop/ML2024/introml-nccu-2024-task-4/introml_2024_task4_test_NO_answers_shuffled.csv", index_col = 0)
 
 test.replace('?', np.nan, inplace = True)
