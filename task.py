@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-task4 = pd.read_csv("/Users/sandyyin/Desktop/ML2024/introml_2024_task4_train.csv", index_col = 0)
+task4 = pd.read_csv("xxxxx", index_col = 0)
 
 X = task4.drop(columns=["class"])
 Y = task4["class"]
@@ -85,7 +85,7 @@ Y_p = model.predict(val_X)
 print(f"Accuracy: {accuracy_score(Y_p, val_Y)}") # 0.790625
 
 """ 前處理測試資料、模型預測 """
-test = pd.read_csv("/Users/sandyyin/Desktop/ML2024/introml-nccu-2024-task-4/introml_2024_task4_test_NO_answers_shuffled.csv", index_col = 0)
+test = pd.read_csv("xxxxx", index_col = 0)
 
 test.replace('?', np.nan, inplace = True)
 test_num = test.iloc[:, 8:16].astype(float)
@@ -108,4 +108,4 @@ pred.rename(columns = {0 :"class"}, inplace = True)
 pred.index.names = ["id"]
 
 # 輸出預測結果
-# pred.to_csv("/Users/sandyyin/Desktop/ML2024/pred15.csv")
+# pred.to_csv("xxxxx")
